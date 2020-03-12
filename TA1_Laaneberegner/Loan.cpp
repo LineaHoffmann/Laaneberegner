@@ -72,7 +72,7 @@ double Loan::totalPayment() const
 
     for ( size_t n = 0; n < static_cast<size_t>(mYears); ++n)
     {
-        payment = remaining * (1/(1-(1+mInterestRate)));
+        payment = remaining * (mInterestRate/(1- pow(1 + mInterestRate, -n)));
         result += payment;
         remaining -= payment;
         std::cout << payment << " and " << result << " and " << remaining << std::endl;

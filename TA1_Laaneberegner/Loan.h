@@ -40,4 +40,5 @@ private:
     double mDebt, mInterestRate;
     int mYears, mPaymentsPerYear;
 };
+
 #endif // LOAN_H
