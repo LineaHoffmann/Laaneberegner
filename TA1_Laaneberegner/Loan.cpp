@@ -1,4 +1,6 @@
 #include <Loan.h>
+#include <iostream>
+#include <math.h>
 
 
 int Loan::getYears() const
@@ -43,4 +45,20 @@ double Loan::getInterestRate() const
 void Loan::setInterestRate(double rate)
 {
     mInterestRate = rate;
+}
+
+double Loan::totalInterest() const
+{
+
+}
+
+double Loan::totalPayment() const
+{
+    double result{0};
+    double remaining = mDebt;
+    for ( size_t n = 0; n < static_cast<size_t>(mYears); ++n)
+    {
+        result += remaining *(1./(1 - pow(1 + static_cast<double>(mInterestRate)/mPaymentsPerYear,-n)));
+        std::cout << result << remaining << std::endl;
+    }
 }
