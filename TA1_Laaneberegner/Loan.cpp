@@ -3,6 +3,7 @@
 
 int Loan::getYears() const
 {
+    return mYears;
 
 }
 
