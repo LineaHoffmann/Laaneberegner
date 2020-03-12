@@ -59,26 +59,12 @@ void Loan::setInterestRate(double rate)
 
 double Loan::totalInterest() const
 {
-    return 0;
+    return totalPayment() - getDebt();
 }
 
 double Loan::totalPayment() const
 {
-    double result{0};
-    double payment{0};
-    double remaining = mDebt;
-    double tempCalc;
+         double y = mDebt * (mInterestRate/100)/(1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>(mYears * mPaymentsPerYear))));
 
-    std::cout << payment << " and " << result << " and " << remaining << std::endl;
-
-    for ( size_t n = 1 ; n < (static_cast<size_t>(mYears) * mPaymentsPerYear) + 1 ; ++n)
-    {
-        tempCalc = 1/pow((1 + (mInterestRate/100)), static_cast<long double>(n));
-
-        //calculation
-        payment = mDebt * (mInterestRate/100)/(1 - tempCalc);
-        std::cout << tempCalc << " payment: " << payment << std::endl;
-    }
-
-    return result;
+    return y * (mYears * mPaymentsPerYear);
 }
