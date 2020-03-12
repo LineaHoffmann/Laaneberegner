@@ -3,6 +3,14 @@
 #include <math.h>
 
 
+Loan::Loan(double debt, int years, int paymentsPerYear, double interestRate)
+{
+    setDebt(debt);
+    setYears(years);
+    setPaymentsPerYear(paymentsPerYear);
+    setInterestRate(interestRate);
+}
+
 int Loan::getYears() const
 {
     return mYears;
