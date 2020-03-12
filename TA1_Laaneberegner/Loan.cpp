@@ -9,16 +9,19 @@ int Loan::getYears() const
 
 void Loan::setYears(int years)
 {
+    mYears = years;
 
 }
 
 int Loan::getPaymentsPerYear() const
 {
+    return mPaymentsPerYear;
 
 }
 
 void Loan::setPaymentsPerYear(int paymentsPerYear)
 {
+    mPaymentsPerYear = paymentsPerYear;
 
 }
 
