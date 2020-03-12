@@ -66,7 +66,7 @@ double Loan::totalPayment() const
     double payment{0};
     double remaining = mDebt;
 
-    std::cout << result << " and " << remaining << std::endl;
+    std::cout << payment << " and " << result << " and " << remaining << std::endl;
 
     for ( size_t n = 0; n < static_cast<size_t>(mYears); ++n)
     {
