@@ -49,7 +49,7 @@ void Loan::setInterestRate(double rate)
 
 double Loan::totalInterest() const
 {
-
+    return 0;
 }
 
 double Loan::totalPayment() const
@@ -61,4 +61,6 @@ double Loan::totalPayment() const
         result += remaining *(1./(1 - pow(1 + static_cast<double>(mInterestRate)/mPaymentsPerYear,-n)));
         std::cout << result << remaining << std::endl;
     }
+
+    return result;
 }
