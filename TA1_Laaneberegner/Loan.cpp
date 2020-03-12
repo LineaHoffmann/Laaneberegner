@@ -19,8 +19,12 @@ int Loan::getYears() const
 
 void Loan::setYears(int years)
 {
+    if(years > 0 && years < 30)
+    {
     mYears = years;
-
+    }
+    else
+        std::cout << "Invalid argument" << std::endl;
 }
 
 int Loan::getPaymentsPerYear() const
@@ -31,8 +35,14 @@ int Loan::getPaymentsPerYear() const
 
 void Loan::setPaymentsPerYear(int paymentsPerYear)
 {
-    mPaymentsPerYear = paymentsPerYear;
-
+    if(paymentsPerYear > 0 && paymentsPerYear <= 12)
+        {
+            mPaymentsPerYear = paymentsPerYear;
+        }
+    else
+    {
+        std::cout << "invalid input, please choose a number between 1 and 12" << std::endl;
+    }
 }
 
 double Loan::getDebt() const
@@ -53,8 +63,6 @@ double Loan::getInterestRate() const
 void Loan::setInterestRate(double rate)
 {
    mInterestRate = rate/mPaymentsPerYear;
-   std::cout << mInterestRate << std::endl;
-
 }
 
 double Loan::totalInterest() const
