@@ -52,7 +52,9 @@ double Loan::getInterestRate() const
 
 void Loan::setInterestRate(double rate)
 {
-    mInterestRate = rate;
+   mInterestRate = rate/mPaymentsPerYear;
+   std::cout << mInterestRate << std::endl;
+
 }
 
 double Loan::totalInterest() const
