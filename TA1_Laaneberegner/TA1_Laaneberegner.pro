@@ -4,9 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        linea.cpp \
         main.cpp
 
 HEADERS += \
-    Loan.h \
-    linea.h
+    Loan.h
