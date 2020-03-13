@@ -36,22 +36,13 @@ public:
 
     // Output the periodical payments with unpaid balance, paid interest and repayment of each payment to stream object ost
     void outputPeriodicalPayments(std::ostream& ost) const;
+
 private:
-    double mDebt, mInterestRate;
+    double mDebt, mInterestRate, periodicFee;
     int mYears, mPaymentsPerYear;
 
-    friend double rounding(double &input);
+    void calcPeriodicFee();
+
 };
-
-double rounding(double &amount)
-{
-
-    int64_t rounded = ((amount) / 100) * 10;  // Rounded down before *10
-    int64_t trueval = ((amount* 10) / 100);
-    int64_t rounded;
-
-
-    return rounded;
-}
 
 #endif // LOAN_H
