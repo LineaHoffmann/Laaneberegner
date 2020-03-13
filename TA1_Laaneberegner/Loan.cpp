@@ -74,5 +74,10 @@ double Loan::totalPayment() const
 {
          double y = mDebt * (mInterestRate/100)/(1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>(mYears * mPaymentsPerYear))));
 
-    return y * (mYears * mPaymentsPerYear);
+         return y * (mYears * mPaymentsPerYear);
+}
+
+double Loan::totalInterestTaxDeducted(double taxDeductionRate) const
+{
+    return totalInterest() * (taxDeductionRate/100);
 }

@@ -39,6 +39,19 @@ public:
 private:
     double mDebt, mInterestRate;
     int mYears, mPaymentsPerYear;
+
+    friend double rounding(double &input);
 };
+
+double rounding(double &amount)
+{
+
+    int64_t rounded = ((amount) / 100) * 10;  // Rounded down before *10
+    int64_t trueval = ((amount* 10) / 100);
+    int64_t rounded;
+
+
+    return rounded;
+}
 
 #endif // LOAN_H
