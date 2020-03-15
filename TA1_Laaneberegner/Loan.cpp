@@ -39,7 +39,7 @@ void Loan::setYears(int years)
     mYears = years;
     }
     else
-        std::cout << "Invalid argument" << std::endl;
+        std::cout << "Ugyldigt argument" << std::endl;
 }
 
 int Loan::getPaymentsPerYear() const
@@ -56,7 +56,7 @@ void Loan::setPaymentsPerYear(int paymentsPerYear)
         }
     else
     {
-        std::cout << "invalid input, please choose a number between 1 and 12" << std::endl;
+        std::cout << "Ugyldig indtastning, venligst vælg en nummer mellem 1 og 12" << std::endl;
     }
 }
 
