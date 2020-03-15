@@ -127,3 +127,8 @@ void Loan::calcPeriodicFee()
 {
     periodicFee = mDebt * (mInterestRate/100)/(1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>(mYears * mPaymentsPerYear))));
 }
+
+void Loan::calcAllLoan(const double array[])
+{
+    //iterate through array setting intrestrate and calculation total payments ect. and printing.
+}
