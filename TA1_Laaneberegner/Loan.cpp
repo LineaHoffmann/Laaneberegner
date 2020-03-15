@@ -101,12 +101,12 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
 {
     //printing table headers
     ost << std::left << " | "
-                << std::setw(11) << std::left << "Termin: "
+                << std::setw(8) << std::left << "Termin: "
 
                 << std::left << " | "
-                << std::setw(20) << std::left << " Ydelse: "
+                << std::setw(10) << std::left << " Ydelse: "
                 << std::left << " | "
-                << std::setw(27) << std::left << " Restgaeld: "
+                << std::setw(15) << std::left << " Restgaeld: "
                 << std::left << " | " << std::endl;
     //for-loop to iterate through all the periodic payments
     for (size_t i = 1; i < static_cast<size_t>((mYears * mPaymentsPerYear)+1); ++i)
@@ -114,13 +114,10 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
         //sending text to ost object to be printed
         //using io-manip to arrange into table, left/right justification used to make table prettier and width to define colomn width
         ost << std::left << " | "
-            << std::setw(7) << std::left << "Termin: "
-            << std::setw(03) << std::right << i
+            << std::setw(8) << std::right << i
             << std::left << " | "
-            << std::setw(10) << std::left << " Ydelse: "
             << std::setw(10) << std::right << periodicFee
             << std::left << " | "
-            << std::setw(10) << std::left << " Restgaeld: "
                //using round even to round to 2 significant decimals and setPrecision to always show 2 digits after the decimal point.
             << std::setw(15) << std::right << std::setprecision(2) << std::fixed << ((round(100 * ((periodicFee * i) - totalPayment()))) / 100) * -1
             << std::left << " | " << std::endl;
