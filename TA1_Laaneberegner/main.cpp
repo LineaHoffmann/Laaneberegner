@@ -45,8 +45,12 @@ int main()
     l2.calcPeriodicFee();
 
     //Outputs the interest rate
-    std::cout << "Lånerenten er: " << input << "%" << " Samlet betaling: "<< static_cast<long>(l2.totalPayment()) <<  " Samlet rentegebyr:  " << std::fixed << l2.totalInterest() << std::endl;
+    std::cout << "Lånerenten er: " << input << "% \n"
+              << " Samlet betaling: "<< static_cast<long>(l2.totalPayment())  << "\n"
+              <<  " Samlet rentegebyr:  " << std::fixed << l2.totalInterest() << std::endl;
 
+    // Outputs the interest with tax deduction
+    std::cout << "Samlet fradrag: " <<l2.totalInterestTaxDeducted(30.6) << std::endl;
     //Outputs the Periodical Payments
     l2.outputPeriodicalPayments(std::cout);
 
