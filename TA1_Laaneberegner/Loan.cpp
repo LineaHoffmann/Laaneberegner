@@ -87,9 +87,21 @@ double Loan::totalInterestTaxDeducted(double taxDeductionRate) const
 
 void Loan::outputPeriodicalPayments(std::ostream &ost) const
 {
+    //for-loop to iterate through all the periodic payments
     for (size_t i = 1; i < static_cast<size_t>((mYears * mPaymentsPerYear)+1); ++i)
     {
-        ost << std::left << "Termin: " << std::setw(5) << i << " Ydelse: " << periodicFee << " Restgæld " << static_cast<int>(((periodicFee * i) - totalPayment())) << std::endl;
+        //sending text to ost object to be printed
+        //using io-manip to arrange into table
+        ost << std::left << " | "
+            << std::setw(7) << std::left << "Termin: "
+            << std::setw(03) << std::right << i
+            << std::left << " | "
+            << std::setw(10) << std::left << " Ydelse: "
+            << std::setw(10) << std::right << periodicFee
+            << std::left << " | "
+            << std::setw(10) << std::left << " Restgaeld "
+            << std::setw(10) << std::right << static_cast<int>(((periodicFee * i) - totalPayment()))
+            << std::left << " | " << std::endl;
     }
 }
 
