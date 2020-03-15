@@ -40,6 +40,9 @@ public:
     //Calculation of periodic fee for the object, to use with other functions
     void calcPeriodicFee();
 
+    //function to calculate and print alle information for all types of loan.
+    void calcAllLoan(const double array[]);
+
 private:
     double mDebt, mInterestRate, periodicFee;
     int mYears, mPaymentsPerYear;
