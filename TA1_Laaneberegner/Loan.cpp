@@ -1,14 +1,18 @@
 #include <Loan.h>
 #include <iostream>
+#include <iomanip>
 #include <math.h>
 
 
 Loan::Loan(double debt, int years, int paymentsPerYear, double interestRate)
 {
+    //clling functions to set creation values
     setDebt(debt);
     setYears(years);
     setPaymentsPerYear(paymentsPerYear);
     setInterestRate(interestRate);
+
+    //calculating periodic fee by the inputs
     calcPeriodicFee();
 }
 
@@ -85,7 +89,7 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
 {
     for (size_t i = 1; i < static_cast<size_t>((mYears * mPaymentsPerYear)+1); ++i)
     {
-        ost << i << " Ydelse: " << periodicFee << " Restgæld " << static_cast<int>(((periodicFee * i) - totalPayment())) << std::endl;
+        ost << std::left << "Termin: " << std::setw(5) << i << " Ydelse: " << periodicFee << " Restgæld " << static_cast<int>(((periodicFee * i) - totalPayment())) << std::endl;
     }
 }
 
