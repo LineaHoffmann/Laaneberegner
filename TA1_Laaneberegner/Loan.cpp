@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <math.h>
 
+
 /*
  * Constructor for the Loan objects.
  * Takes double debt, int years, int paymentYears, double InterestRate

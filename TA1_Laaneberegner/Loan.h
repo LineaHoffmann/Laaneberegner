@@ -50,6 +50,6 @@ private:
 };
 
 //added sums of values for the 5 types of loan
-double Loan::loanDetailArr[] = {2.0, 2.6, 2.7, 1.45, 1.7};
+//double Loan::loanDetailArr[] = {2.0, 2.6, 2.7, 1.45, 1.7};
 
 #endif // LOAN_H
