@@ -43,6 +43,9 @@ private:
 
     void calcPeriodicFee();
 
+    //Array to hold values for different types of loans from https://www.totalkredit.dk/siteassets/dokumenter/privat/prisblad/prisblad.pdf
+    static double loanDetailArr[10];
+
 };
 
 #endif // LOAN_H
