@@ -102,7 +102,6 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
     //printing table headers
     ost << std::left << " | "
                 << std::setw(8) << std::left << "Termin: "
-
                 << std::left << " | "
                 << std::setw(10) << std::left << " Ydelse: "
                 << std::left << " | "
