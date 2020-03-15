@@ -3,7 +3,10 @@
 #include <iomanip>
 #include <math.h>
 
-
+/*
+ * Constructor for the Loan objects.
+ * Takes double debt, int years, int paymentYears, double InterestRate
+*/
 Loan::Loan(double debt, int years, int paymentsPerYear, double interestRate)
 {
     //clling functions to set creation values
@@ -16,12 +19,19 @@ Loan::Loan(double debt, int years, int paymentsPerYear, double interestRate)
     calcPeriodicFee();
 }
 
+/*
+ * Get Years of the loan.
+*/
 int Loan::getYears() const
 {
     return mYears;
 
 }
 
+/*
+ * Set Years of the loan.
+ * Years can't be less than 0 or bigger than 30 years
+*/
 void Loan::setYears(int years)
 {
     if(years > 0 && years <= 30)
