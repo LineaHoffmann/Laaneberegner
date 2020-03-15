@@ -1,14 +1,15 @@
 #include <iostream>
 #include <ostream>
 #include "Loan.h"
+#include <string>
 
 using namespace std;
 
 int main()
 {
     // Variables for input/output
-    int setYears;
-
+    int setYears = 0;
+    std::cin >> setYears;
     std::cout << "Velkommen til laaneberegneren " << std:: endl;
     Loan l2;
     std::cout << "Sæt venligst beløb på lånet, indsæt ikke komma i tallet: ";
