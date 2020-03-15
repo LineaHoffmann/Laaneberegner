@@ -37,11 +37,13 @@ public:
     // Output the periodical payments with unpaid balance, paid interest and repayment of each payment to stream object ost
     void outputPeriodicalPayments(std::ostream& ost) const;
 
+    void calcPeriodicFee();
+
 private:
     double mDebt, mInterestRate, periodicFee;
     int mYears, mPaymentsPerYear;
 
-    void calcPeriodicFee();
+
 
     //Array to hold values for different types of loans from https://www.totalkredit.dk/siteassets/dokumenter/privat/prisblad/prisblad.pdf
     static double loanDetailArr[10];
