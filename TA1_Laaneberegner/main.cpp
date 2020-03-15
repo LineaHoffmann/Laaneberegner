@@ -3,6 +3,10 @@
 #include "Loan.h"
 #include <string>
 
+
+//initializin static variable values of built-in array and added sums of values for the 5 types of loan
+double Loan::loanDetailArr[10] = {2.0, 2.6, 2.7, 1.45, 1.7};
+
 int main()
 {
     // Temporary input variable
