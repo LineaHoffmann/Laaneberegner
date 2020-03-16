@@ -99,7 +99,7 @@ double Loan::totalInterestTaxDeducted(double taxDeductionRate) const
 
 void Loan::outputPeriodicalPayments(std::ostream &ost) const
 {
-    double tempPV{0}, tempR{0};
+    double tempPV{0}, tempR = mDebt;
     //printing table headers
     ost << std::left << " | "
                 << std::setw(8) << std::left << "Termin: "
@@ -115,7 +115,6 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
     //for-loop to iterate through all the periodic payments
     for (size_t i = 1; i < static_cast<size_t>((mYears * mPaymentsPerYear)+1); ++i)
     {
-        tempR = mDebt - ((i-1) * mperiodicFee);
         tempPV = (mperiodicFee) * (1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>((mYears * mPaymentsPerYear)) - i)))/(mInterestRate/100);
         //sending text to ost object to be printed
         //using io-manip to arrange into table, left/right justification used to make table prettier and width to define colomn width and setPrecision to always show 2 digits after the decimal point.
@@ -124,13 +123,14 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
             << std::left << " | "
             << std::setw(10) << std::right << mperiodicFee
             << std::left << " | "
-            << std::setw(10) << std::left << tempR * (mInterestRate/100)
+            << std::setw(10) << std::right << tempR * (mInterestRate/100)
             << std::left << " | "
-            << std::setw(10) << std::left << (((tempPV + mperiodicFee) * mInterestRate/100) - mperiodicFee)
+            << std::setw(10) << std::right << (((tempPV + mperiodicFee) * mInterestRate/100) - mperiodicFee) * -1
             << std::left << " | "
                //using round even to round to 2 significant decimals
             << std::setw(15) << std::right << std::fixed << tempPV
             << std::left << " | " << std::endl;
+        tempR = tempPV;
     }
 }
 
@@ -138,14 +138,3 @@ void Loan::calcPeriodicFee()
 {
     mperiodicFee = mDebt * (mInterestRate/100)/(1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>(mYears * mPaymentsPerYear))));
 }
-
-//void Loan::calcAllLoan(const double array[])
-//{
-//    //iterate through array setting intrestrate and calculation total payments ect. and printing.
-//    for(unsigned int i = 0; i < array.size; i++)
-//    {
-
-
-//    }
-
-//}
