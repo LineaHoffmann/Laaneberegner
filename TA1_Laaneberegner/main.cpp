@@ -6,7 +6,7 @@
 
 //initializin static variable values of built-in array and added sums of values for the 5 types of loan
 //Array to hold values for different types of loans from https://www.totalkredit.dk/siteassets/dokumenter/privat/prisblad/prisblad.pdf
-double loanDetailArr[5] = {2.0, 2.6, 2.7, 1.45, 1.7};
+double loanDetailArr[5]{2.0, 2.6, 2.7, 1.45, 1.7};
 
 int main()
 {
