@@ -44,10 +44,12 @@ public:
     void calcAllLoan(const double array[]);
 
 private:
-    double mDebt, mInterestRate, periodicFee;
+    double mDebt, mInterestRate, mperiodicFee;
     int mYears, mPaymentsPerYear;
+
+
 
 };
 
 
-#endif // LOAN_H
+#endif // LOAN_H5
