@@ -131,4 +131,10 @@ void Loan::calcPeriodicFee()
 void Loan::calcAllLoan(const double array[])
 {
     //iterate through array setting intrestrate and calculation total payments ect. and printing.
+    for(unsigned int i = 0; i < array.size; i++)
+    {
+
+
+    }
+
 }
