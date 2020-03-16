@@ -111,14 +111,14 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
     for (size_t i = 1; i < static_cast<size_t>((mYears * mPaymentsPerYear)+1); ++i)
     {
         //sending text to ost object to be printed
-        //using io-manip to arrange into table, left/right justification used to make table prettier and width to define colomn width
-        ost << std::left << " | "
+        //using io-manip to arrange into table, left/right justification used to make table prettier and width to define colomn width and setPrecision to always show 2 digits after the decimal point.
+        ost << std::setprecision(2) << std::left << " | "
             << std::setw(8) << std::right << i
             << std::left << " | "
             << std::setw(10) << std::right << periodicFee
             << std::left << " | "
-               //using round even to round to 2 significant decimals and setPrecision to always show 2 digits after the decimal point.
-            << std::setw(15) << std::right << std::setprecision(2) << std::fixed << ((round(100 * ((periodicFee * i) - totalPayment()))) / 100) * -1
+               //using round even to round to 2 significant decimals
+            << std::setw(15) << std::right << std::fixed << ((round(100 * ((periodicFee * i) - totalPayment()))) / 100) * -1
             << std::left << " | " << std::endl;
     }
 }
