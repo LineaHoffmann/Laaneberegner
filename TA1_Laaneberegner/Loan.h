@@ -41,7 +41,7 @@ public:
     void calcPeriodicFee();
 
     //function to calculate and print alle information for all types of loan.
-    void calcAllLoan(const double array[]);
+    void calcAllLoan(const double array[], const size_t numberOfElements);
 
 private:
     double mDebt, mInterestRate, mperiodicFee;
