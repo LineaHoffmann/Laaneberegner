@@ -47,8 +47,6 @@ private:
     double mDebt, mInterestRate, periodicFee;
     int mYears, mPaymentsPerYear;
 
-    //Array to hold values for different types of loans from https://www.totalkredit.dk/siteassets/dokumenter/privat/prisblad/prisblad.pdf
-    static double loanDetailArr[10];
 };
 
 

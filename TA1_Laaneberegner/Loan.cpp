@@ -89,7 +89,7 @@ double Loan::totalInterest() const
 
 double Loan::totalPayment() const
 {
-         return periodicFee * (mYears * mPaymentsPerYear);
+         return mperiodicFee * (mYears * mPaymentsPerYear);
 }
 
 double Loan::totalInterestTaxDeducted(double taxDeductionRate) const
@@ -115,17 +115,17 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
         ost << std::setprecision(2) << std::left << " | "
             << std::setw(8) << std::right << i
             << std::left << " | "
-            << std::setw(10) << std::right << periodicFee
+            << std::setw(10) << std::right << mperiodicFee
             << std::left << " | "
                //using round even to round to 2 significant decimals
-            << std::setw(15) << std::right << std::fixed << ((round(100 * ((periodicFee * i) - totalPayment()))) / 100) * -1
+            << std::setw(15) << std::right << std::fixed << ((round(100 * ((mperiodicFee * i) - totalPayment()))) / 100) * -1
             << std::left << " | " << std::endl;
     }
 }
 
 void Loan::calcPeriodicFee()
 {
-    periodicFee = mDebt * (mInterestRate/100)/(1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>(mYears * mPaymentsPerYear))));
+    mperiodicFee = mDebt * (mInterestRate/100)/(1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>(mYears * mPaymentsPerYear))));
 }
 
 void Loan::calcAllLoan(const double array[])
