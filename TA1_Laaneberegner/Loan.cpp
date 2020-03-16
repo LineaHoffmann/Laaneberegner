@@ -145,9 +145,9 @@ void Loan::calcAllLoan(const double array[], const size_t numberOfElements)
     //iterate through array setting intrestrate and calculat total payments ect. and printing.
     for (unsigned int i = 0; i < numberOfElements; i++)
     {
-
-
-        std::cout << array[i] << std::endl;
+        setInterestRate(*(array + i));
+        calcPeriodicFee();
+        std::cout << "Renten: " << array[i] << " Total tilbagebetalingsbeloeb: " << totalPayment() <<  " Samlet rentebeloeb efter fradrag: " << totalInterestTaxDeducted(30.6) << std::endl;
     }
 
 
