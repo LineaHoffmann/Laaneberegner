@@ -112,6 +112,8 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
 {
     double tempPV{0}, tempR = mDebt;
     //printing table headers
+
+    ost << "Tabel over ydelsesforløbet med indtastede vaerdier:" <<std::endl;
     ost << std::left << " | "
                 << std::setw(8) << std::left << "Termin: "
                 << std::left << " | "
@@ -133,11 +135,11 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
             << std::left << " | "
             << std::setw(8) << std::right << i
             << std::left << " | "
-            << std::setw(10) << std::right << (lrint( 100 * mperiodicFee)) / 100
+            << std::setw(10) << std::right << (lrint( 100 * mperiodicFee)) / 100. //lrint used to round after bankersround priciple, 100. used to force decimal division
             << std::left << " | "
-            << std::setw(14) << std::right << (lrint( 100 * (tempR * (mInterestRate/100)))) / 100
+            << std::setw(14) << std::right << (lrint( 100 * (tempR * (mInterestRate/100)))) / 100.
             << std::left << " | "
-            << std::setw(15) << std::right << (lrint( 100 * ((((tempPV + mperiodicFee) * mInterestRate/100) - mperiodicFee) * -1))) / 100
+            << std::setw(15) << std::right << (lrint( 100 * ((((tempPV + mperiodicFee) * mInterestRate/100) - mperiodicFee) * -1))) / 100.
             << std::left << " | "
                //using round even to round to 2 significant decimals
             << std::setw(15) << std::right << tempPV
