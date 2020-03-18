@@ -6,7 +6,7 @@
 
 int main()
 {
-    // Temporary input variable
+    // Input variable
     std::string input;
 
     //initializin static variable values of built-in array and added sums of values for the 5 types of loan
