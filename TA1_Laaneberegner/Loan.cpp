@@ -144,7 +144,7 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
                //using round even to round to 2 significant decimals
             << std::setw(15) << std::right << tempPV
             << std::left << " | " << std::endl;
-        tempR = tempPV;
+        tempR = tempPV; // tempR being set to current tempPV to be able to calculate correct interest payment.
     }
 }
 
