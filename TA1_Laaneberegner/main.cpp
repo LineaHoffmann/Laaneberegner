@@ -72,7 +72,7 @@ int main()
 
 //    l1.calcAllLoan(loanDetailArr,_countof(loanDetailArr));
 
-    std::cout << lrint(5.5) << " " << lrint(6.5) << std::endl;
+//    std::cout << lrint(5.5) << " " << lrint(6.5) << std::endl;
 
     return 0;
 }
