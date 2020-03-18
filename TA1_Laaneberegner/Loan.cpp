@@ -108,7 +108,7 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
                 << std::left << " | "
                 << std::setw(10) << std::left << " Rentebidrag: "
                 << std::left << " | "
-                << std::setw(10) << std::left << " Afdrag: "
+                << std::setw(15) << std::left << " Afdrag: "
                 << std::left << " | "
                 << std::setw(15) << std::left << " Restgaeld: "
                 << std::left << " | " << std::endl;
@@ -118,17 +118,18 @@ void Loan::outputPeriodicalPayments(std::ostream &ost) const
         tempPV = (mperiodicFee) * (1 - (1/pow((1 + (mInterestRate/100)), static_cast<long double>((mYears * mPaymentsPerYear)) - i)))/(mInterestRate/100);
         //sending text to ost object to be printed
         //using io-manip to arrange into table, left/right justification used to make table prettier and width to define colomn width and setPrecision to always show 2 digits after the decimal point.
-        ost << std::setprecision(2) << std::left << " | "
+        ost << std::setprecision(2) << std::fixed
+            << std::left << " | "
             << std::setw(8) << std::right << i
             << std::left << " | "
-            << std::setw(10) << std::right << mperiodicFee
+            << std::setw(10) << std::right << (round( 100 * mperiodicFee)) / 100
             << std::left << " | "
-            << std::setw(10) << std::right << tempR * (mInterestRate/100)
+            << std::setw(14) << std::right << (round( 100 * (tempR * (mInterestRate/100)))) / 100
             << std::left << " | "
-            << std::setw(10) << std::right << (((tempPV + mperiodicFee) * mInterestRate/100) - mperiodicFee) * -1
+            << std::setw(15) << std::right << (round( 100 * ((((tempPV + mperiodicFee) * mInterestRate/100) - mperiodicFee) * -1))) / 100
             << std::left << " | "
                //using round even to round to 2 significant decimals
-            << std::setw(15) << std::right << std::fixed << tempPV
+            << std::setw(15) << std::right << tempPV
             << std::left << " | " << std::endl;
         tempR = tempPV;
     }
