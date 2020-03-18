@@ -1,8 +1,11 @@
 #include <iostream>
+#include <iomanip>
 #include <ostream>
+#include <cmath>
 #include "Loan.h"
 #include <string>
 
+double rounding(double in);
 
 int main()
 {
@@ -46,9 +49,10 @@ int main()
     l2.calcPeriodicFee();
 
     //Outputs the interest rate
-    std::cout << "Laanerenten er: " << input << "% \n"
-              << " Samlet betaling: "<< static_cast<long>(l2.totalPayment())  << "\n"
-              <<  " Samlet rentegebyr:  " << std::fixed << l2.totalInterest() << std::endl;
+    std::cout << std::fixed << std::setprecision(2)
+              << "Laanerenten er: " << input << "% \n"
+              << " Samlet betaling: "<< rounding(l2.totalPayment())  << "\n"
+              <<  " Samlet rentegebyr:  " << l2.totalInterest() << std::endl;
 
     // Outputs the interest with tax deduction
     std::cout << "Samlet fradrag: " <<l2.totalInterestTaxDeducted(30.6) << std::endl;
@@ -67,5 +71,12 @@ int main()
 
 //    l1.calcAllLoan(loanDetailArr,_countof(loanDetailArr));
 
+    std::cout << lrint(5.5) << " " << lrint(6.5) << std::endl;
+
     return 0;
+}
+
+double rounding(double in)
+{
+    return std::lrint(100 * in)/100;
 }
