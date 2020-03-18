@@ -69,9 +69,7 @@ int main()
 //    l1.getInterestRate();
 //    std::cout << "total payment: " << static_cast<long>(l1.totalPayment()) << " Total Interest: " << l1.totalInterest() << std::endl;
 //    l1.outputPeriodicalPayments(std::cout);
-
 //    l1.calcAllLoan(loanDetailArr,_countof(loanDetailArr));
-
 //    std::cout << lrint(5.5) << " " << lrint(6.5) << std::endl;
 
     return 0;
