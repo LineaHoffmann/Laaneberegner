@@ -5,6 +5,7 @@
 #include "Loan.h"
 #include <string>
 
+//function prototype for rounding
 double rounding(double in);
 
 int main()
@@ -76,7 +77,9 @@ int main()
     return 0;
 }
 
+//rounding function to 2 decimal point
 double rounding(double in)
 {
+    //Using lrInt to round according to bankersrounding, tested in unit test section above
     return std::lrint(100 * in)/100;
 }
