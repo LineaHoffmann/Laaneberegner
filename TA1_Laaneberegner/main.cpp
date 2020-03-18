@@ -19,6 +19,7 @@ int main()
 
     // Outputs a welcome message to the user
     std::cout << "Velkommen til laaneberegneren " << std:: endl;
+
     // Initilize an object, l2 with default contructor
     Loan l2;
 
@@ -27,6 +28,7 @@ int main()
     std::cout << "Saet venligst beloeb paa laanet, indsaet ikke komma i tallet: ";
     std::cin >> input;
     l2.setDebt(std::stod(input));
+    std::cout << l2.getDebt() << std::endl;
 
     // Outputs message to user, takes input converts input string to int
     // and using setter to set membervariable on object l2.
@@ -64,13 +66,13 @@ int main()
     std::cout << "Beregner for andre laanetyper med hhv. 2% rente, 2,6% rente, 2,7% rente, 1,45% rente, 1.7% rente" << std::endl;
     l2.calcAllLoan(loanDetailArr,_countof(loanDetailArr));
 
-    //test stuff
-//    Loan l1(1000000, 30, 4, 3);
-//    l1.getInterestRate();
-//    std::cout << "total payment: " << static_cast<long>(l1.totalPayment()) << " Total Interest: " << l1.totalInterest() << std::endl;
-//    l1.outputPeriodicalPayments(std::cout);
-//    l1.calcAllLoan(loanDetailArr,_countof(loanDetailArr));
-//    std::cout << lrint(5.5) << " " << lrint(6.5) << std::endl;
+    //test
+    Loan l1(1000000, 30, 4, 3);
+    l1.getInterestRate();
+    std::cout << "total payment: " << static_cast<long>(l1.totalPayment()) << " Total Interest: " << l1.totalInterest() << std::endl;
+    l1.outputPeriodicalPayments(std::cout);
+    l1.calcAllLoan(loanDetailArr,_countof(loanDetailArr));
+    std::cout << lrint(5.5) << " " << lrint(6.5) << std::endl;
 
     return 0;
 }
